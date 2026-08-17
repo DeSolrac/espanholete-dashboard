@@ -5,133 +5,150 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Espanholete — Dashboard de Campanhas</title>
 <style>
-:root{
---card:#161d2e;
---card2:#1b2436;
---border:#2a3550;
---text:#eef1f8;
---muted:#9aa5c0;
---green:#3ecf8e;
---yellow:#f0b429;
---google:#4285F4;
---meta:#0866FF;
---site:#3ecf8e;
-}
-*{box-sizing:border-box;}
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-background:linear-gradient(180deg,#0b0f1a,#0f1420);
-color:var(--text);
-padding:32px 20px 60px;
-}
-.wrap{max-width:1040px;margin:0 auto;}
-header{
-display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;
-margin-bottom:28px;border-bottom:1px solid var(--border);padding-bottom:20px;
-}
-header h1{margin:0;font-size:26px;letter-spacing:-0.02em;}
-header p{margin:4px 0 0;color:var(--muted);font-size:14px;}
-.updated{font-size:13px;color:var(--muted);background:var(--card2);border:1px solid var(--border);padding:6px 12px;border-radius:20px;}
-.updated b{color:var(--text);}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px;}
-@media (max-width:860px){.grid{grid-template-columns:1fr;}}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;position:relative;overflow:hidden;}
-.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;}
-.card.google::before{background:var(--google);}
-.card.meta::before{background:var(--meta);}
-.card.site::before{background:var(--site);}
-.card h2{margin:0 0 2px;font-size:15px;display:flex;align-items:center;gap:8px;}
-.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
-.dot.on{background:var(--green);box-shadow:0 0 0 3px rgba(62,207,142,.15);}
-.card .sub{color:var(--muted);font-size:12.5px;margin-bottom:16px;}
-.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px;}
-.stat{background:var(--card2);border-radius:10px;padding:10px 12px;}
-.stat .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
-.stat .value{font-size:19px;font-weight:600;margin-top:2px;}
-.badge{display:inline-block;font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600;margin-top:14px;}
-.badge.warn{background:rgba(240,180,41,.15);color:var(--yellow);}
-.badge.ok{background:rgba(62,207,142,.15);color:var(--green);}
-.section-title{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:32px 0 14px;}
-.notes{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
-.notes ul{margin:0;padding-left:18px;}
-.notes li{margin-bottom:10px;font-size:14px;line-height:1.5;color:#d7dcec;}
-.notes li b{color:var(--text);}
-.totalbudget{display:flex;justify-content:space-between;background:var(--card2);border-radius:10px;padding:14px 16px;margin-top:10px;font-size:14px;}
-footer{margin-top:36px;text-align:center;color:var(--muted);font-size:12.5px;}
+  :root{
+    --card:#161d2e;
+    --card2:#1b2436;
+    --border:#2a3550;
+    --text:#eef1f8;
+    --muted:#9aa5c0;
+    --green:#3ecf8e;
+    --yellow:#f0b429;
+    --red:#f0554a;
+    --google:#4285F4;
+    --meta:#0866FF;
+    --site:#3ecf8e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:linear-gradient(180deg,#0b0f1a,#0f1420);
+    color:var(--text);
+    padding:32px 20px 60px;
+  }
+  .wrap{max-width:1040px;margin:0 auto;}
+  header{
+    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;
+    margin-bottom:28px;border-bottom:1px solid var(--border);padding-bottom:20px;
+  }
+  header h1{margin:0;font-size:26px;letter-spacing:-0.02em;}
+  header p{margin:4px 0 0;color:var(--muted);font-size:14px;}
+  .updated{font-size:13px;color:var(--muted);background:var(--card2);border:1px solid var(--border);padding:6px 12px;border-radius:20px;}
+  .updated b{color:var(--text);}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px;}
+  @media (max-width:860px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;position:relative;overflow:hidden;}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;}
+  .card.google::before{background:var(--google);}
+  .card.meta::before{background:var(--meta);}
+  .card.site::before{background:var(--site);}
+  .card h2{margin:0 0 2px;font-size:15px;display:flex;align-items:center;gap:8px;}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+  .dot.on{background:var(--green);box-shadow:0 0 0 3px rgba(62,207,142,.15);}
+  .dot.warn{background:var(--yellow);box-shadow:0 0 0 3px rgba(240,180,41,.15);}
+  .card .sub{color:var(--muted);font-size:12.5px;margin-bottom:16px;}
+  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px;}
+  .stat{background:var(--card2);border-radius:10px;padding:10px 12px;}
+  .stat .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+  .stat .value{font-size:19px;font-weight:600;margin-top:2px;}
+  .badge{display:inline-block;font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600;margin-top:14px;margin-right:6px;}
+  .badge.warn{background:rgba(240,180,41,.15);color:var(--yellow);}
+  .badge.ok{background:rgba(62,207,142,.15);color:var(--green);}
+  .badge.crit{background:rgba(240,85,74,.15);color:var(--red);}
+  .section-title{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:32px 0 14px;}
+  .notes{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
+  .notes ul{margin:0;padding-left:18px;}
+  .notes li{margin-bottom:10px;font-size:14px;line-height:1.5;color:#d7dcec;}
+  .notes li b{color:var(--text);}
+  .totalbudget{display:flex;justify-content:space-between;background:var(--card2);border-radius:10px;padding:14px 16px;margin-top:10px;font-size:14px;}
+  .subcard{background:var(--card2);border-radius:10px;padding:12px 14px;margin-top:10px;font-size:12.5px;color:var(--muted);}
+  .subcard b{color:var(--text);display:block;margin-bottom:4px;font-size:13px;}
+  footer{margin-top:36px;text-align:center;color:var(--muted);font-size:12.5px;}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header>
-<div>
-<h1>Fim do Portunhol no Trabalho</h1>
-<p>Dashboard de campanhas — Espanholete · Auditore</p>
-</div>
-<div class="updated">Última atualização: <b>14/08/2026</b></div>
-</header>
+  <header>
+    <div>
+      <h1>Fim do Portunhol no Trabalho</h1>
+      <p>Dashboard de campanhas — Espanholete · Auditore</p>
+    </div>
+    <div class="updated">Última atualização: <b>17/08/2026</b></div>
+  </header>
 
-<div class="grid">
+  <div class="grid">
 
-<div class="card google">
-<h2><span class="dot on"></span>Google Ads</h2>
-<div class="sub">Espanholete - Leads - Teste 20 dias (05–25/08)</div>
-<div class="stat-row">
-<div class="stat"><div class="label">Impressões (acum.)</div><div class="value">0</div></div>
-<div class="stat"><div class="label">Cliques (acum.)</div><div class="value">0</div></div>
-</div>
-<div class="stat-row">
-<div class="stat"><div class="label">Investido</div><div class="value">R$ 0,00</div></div>
-<div class="stat"><div class="label">Conversões</div><div class="value">0</div></div>
-</div>
-<div class="totalbudget"><span>Orçamento</span><b>R$ 300,00 / 20 dias</b></div>
-<span class="badge warn">Sem impressões desde a reativação em 10/08 (4 dias) — chamado aberto com o suporte do Google Ads</span>
-</div>
+    <div class="card google">
+      <h2><span class="dot warn"></span>Google Ads</h2>
+      <div class="sub">Espanholete - Leads - Teste 20 dias (05–25/08)</div>
+      <div class="stat-row">
+        <div class="stat"><div class="label">Impressões (acum.)</div><div class="value">0</div></div>
+        <div class="stat"><div class="label">Cliques (acum.)</div><div class="value">0</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="label">Investido</div><div class="value">R$ 0,00</div></div>
+        <div class="stat"><div class="label">Conversões</div><div class="value">0</div></div>
+      </div>
+      <div class="totalbudget"><span>Orçamento</span><b>R$ 300,00 / 20 dias</b></div>
+      <span class="badge crit">Caso aberto no suporte Google — aguardando retorno</span>
+      <div class="subcard">
+        <b>Escalado ao Google em 17/08</b>
+        12 dias em veiculação, campanha Qualificada, zero impressões. Encontramos uma contradição técnica: a Ferramenta de Diagnóstico do Google diz que nenhuma palavra-chave da conta corresponde às consultas testadas, mesmo com as 3 keywords cadastradas e Qualificadas. Resposta enviada à analista do caso (2-3891000041431) detalhando o achado.
+      </div>
+    </div>
 
-<div class="card meta">
-<h2><span class="dot on"></span>Meta Ads</h2>
-<div class="sub">Espanholete - Leads - Teste 20 dias (10–25/08)</div>
-<div class="stat-row">
-<div class="stat"><div class="label">Impressões (acum.)</div><div class="value">2.319</div></div>
-<div class="stat"><div class="label">Alcance (acum.)</div><div class="value">1.835</div></div>
-</div>
-<div class="stat-row">
-<div class="stat"><div class="label">Investido</div><div class="value">R$ 78,92</div></div>
-<div class="stat"><div class="label">Leads</div><div class="value">1</div></div>
-</div>
-<div class="totalbudget"><span>Orçamento</span><b>R$ 300,00 / 20 dias</b></div>
-<span class="badge ok">Rodando normalmente</span>
-</div>
+    <div class="card meta">
+      <h2><span class="dot on"></span>Meta Ads</h2>
+      <div class="sub">2 campanhas — Leads (05–25/08, encerrada) + Visualização de Página (16–25/08, ativa)</div>
+      <div class="stat-row">
+        <div class="stat"><div class="label">Impressões (acum.)</div><div class="value">5.064</div></div>
+        <div class="stat"><div class="label">Alcance (acum.)</div><div class="value">4.153</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="label">Investido</div><div class="value">R$ 159,20</div></div>
+        <div class="stat"><div class="label">Leads</div><div class="value">7</div></div>
+      </div>
+      <div class="totalbudget"><span>Orçamento</span><b>R$ 300,00 + R$ 161,00</b></div>
+      <span class="badge ok">Rodando normalmente</span>
+      <div class="subcard">
+        <b>Teste A/B ativo desde 16/08</b>
+        2 vídeos novos da Ailide concorrendo entre si (otimização por Visualização de Página), vídeo antigo pausado para concentrar orçamento. Também criamos um público Lookalike 1% a partir da lista de e-mails de alunos, pronto para uso em uma próxima rodada.
+      </div>
+    </div>
 
-<div class="card site">
-<h2><span class="dot on"></span>Site (GA4)</h2>
-<div class="sub">faleespanholnotrabalho.com — últimos 28 dias</div>
-<div class="stat-row">
-<div class="stat"><div class="label">Sessões</div><div class="value">269</div></div>
-<div class="stat"><div class="label">Usuários ativos</div><div class="value">258</div></div>
-</div>
-<div class="stat-row">
-<div class="stat"><div class="label">Taxa de engajamento</div><div class="value">16,4%</div></div>
-<div class="stat"><div class="label">Visualizações da LP</div><div class="value">291</div></div>
-</div>
-<span class="badge warn">Checar tráfego de Prineville/EUA (possível bot)</span>
-</div>
+    <div class="card site">
+      <h2><span class="dot on"></span>Site (GA4)</h2>
+      <div class="sub">faleespanholnotrabalho.com — últimos 28 dias</div>
+      <div class="stat-row">
+        <div class="stat"><div class="label">Sessões</div><div class="value">349</div></div>
+        <div class="stat"><div class="label">Usuários ativos</div><div class="value">335</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="label">Taxa de engajamento</div><div class="value">18,6%</div></div>
+        <div class="stat"><div class="label">Leads (evento)</div><div class="value">0</div></div>
+      </div>
+      <span class="badge ok">Tráfego suspeito dos EUA caiu bastante</span>
+      <div class="subcard">
+        <b>Filtro de tráfego interno em teste</b>
+        Criamos uma regra de IP para o Data Filter "Internal Traffic" (estava sem nenhuma regra). Deixamos em modo Teste por 3-4 dias antes de ativar — validação automática agendada para 21/08.
+      </div>
+    </div>
 
-</div>
+  </div>
 
-<div class="section-title">Observações do dia</div>
-<div class="notes">
-<ul>
-<li><b>Google Ads:</b> a campanha segue sem acumular impressões desde a reativação em 10/08 (4 dias corridos). Já revisamos configuração, orçamento, aprovação do anúncio e faturamento — está tudo certo do nosso lado — e abrimos um chamado diretamente com o suporte do Google Ads para investigar a fundo. Aguardando retorno.</li>
-<li><b>Meta Ads:</b> evoluindo de forma consistente — 2.319 impressões (era 1.369), 1.835 pessoas alcançadas (era 1.014) e 1 lead registrado, com R$ 78,92 investidos até agora (era R$ 39,92). Dentro do esperado para essa fase da campanha.</li>
-<li><b>Site:</b> salto grande nos últimos 28 dias — 269 sessões (era 110), 258 usuários ativos (era 100) e 291 visualizações da LP (era 118). A taxa de engajamento caiu para 16,4% (era 23,6%), o que combinado ao volume alto levanta suspeita de tráfego não humano — mesma região de Prineville (Oregon, data centers do Google/Meta) segue aparecendo. Vamos investigar essa origem antes de comemorar o crescimento.</li>
-</ul>
-</div>
+  <div class="section-title">Observações do dia</div>
+  <div class="notes">
+    <ul>
+      <li><b>Google Ads:</b> a campanha completou 12 dias em veiculação sem nenhuma impressão. Investigamos a fundo e encontramos uma contradição concreta entre a interface (palavras-chave Qualificadas) e a Ferramenta de Diagnóstico (que não reconhece nenhuma delas). Respondemos ao analista do suporte do Google com esse achado e aguardamos retorno. A troca do objetivo de conversão para "Lead" não é possível hoje — não existe essa ação de conversão configurada na conta, então mantivemos o foco em resolver o problema de veiculação primeiro.</li>
+      <li><b>Meta Ads:</b> concluímos a publicação do teste A/B dos 2 novos vídeos da Ailide (publicados em 16/08), pausamos o vídeo antigo para não diluir o orçamento entre anúncios demais, e criamos um público Lookalike 1% a partir da base de e-mails de alunos para uma próxima expansão de público. A campanha de leads original já gerou 7 leads a R$22,45 cada; a nova campanha de Visualização de Página está rodando normalmente, ainda em fase inicial.</li>
+      <li><b>Site:</b> tráfego total nos últimos 28 dias cresceu bastante (349 sessões, 335 usuários ativos) puxado pelo lançamento orgânico da Ailide e pelos anúncios do Meta. O volume suspeito de acessos dos EUA/Prineville caiu de forma expressiva neste período. Criamos (e deixamos em modo teste) uma regra de tráfego interno no GA4 para blindar os dados antes de validar oficialmente.</li>
+    </ul>
+  </div>
 
-<footer>
-Atualizado manualmente pela equipe Auditore a cada check-in de campanhas · Fim do Portunhol no Trabalho
-</footer>
+  <footer>
+    Atualizado manualmente pela equipe Auditore a cada check-in de campanhas · Fim do Portunhol no Trabalho
+  </footer>
 
 </div>
 </body>
