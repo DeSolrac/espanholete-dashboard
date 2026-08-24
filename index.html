@@ -1,4 +1,3 @@
-<!-- rebuild-trigger 21/08 -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -47,6 +46,7 @@
   .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
   .dot.on{background:var(--green);box-shadow:0 0 0 3px rgba(62,207,142,.15);}
   .dot.warn{background:var(--yellow);box-shadow:0 0 0 3px rgba(240,180,41,.15);}
+  .dot.crit{background:var(--red);box-shadow:0 0 0 3px rgba(240,85,74,.15);}
   .card .sub{color:var(--muted);font-size:12.5px;margin-bottom:16px;}
   .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px;}
   .stat{background:var(--card2);border-radius:10px;padding:10px 12px;}
@@ -75,13 +75,13 @@
       <h1>Fim do Portunhol no Trabalho</h1>
       <p>Dashboard de campanhas — Espanholete · Auditore</p>
     </div>
-    <div class="updated">Última atualização: <b>21/08/2026</b></div>
+    <div class="updated">Última atualização: <b>24/08/2026</b></div>
   </header>
 
   <div class="grid">
 
     <div class="card google">
-      <h2><span class="dot warn"></span>Google Ads</h2>
+      <h2><span class="dot crit"></span>Google Ads</h2>
       <div class="sub">Espanholete - Leads - Teste 20 dias (10–29/08)</div>
       <div class="stat-row">
         <div class="stat"><div class="label">Impressões (acum.)</div><div class="value">0</div></div>
@@ -92,29 +92,30 @@
         <div class="stat"><div class="label">Conversões</div><div class="value">0</div></div>
       </div>
       <div class="totalbudget"><span>Orçamento</span><b>R$ 300,00 (agora R$ 28,00/dia)</b></div>
-      <span class="badge warn">Orçamento ajustado — aguardando estabilização</span>
+      <span class="badge crit">Janela de estabilização esgotada — 0 resultados</span>
       <div class="subcard">
-        <b>Ainda 0 impressões (dia 4 da janela de estabilização)</b>
-        Sowjanya (suporte Google) validou a estratégia: focar em "aulas de espanhol" (CPC R$2,12–12,04, compatível com o orçamento), com estimativa de 5 a 10 cliques/dia assim que o leilão processar o novo valor. Ela confirmou que uma investigação técnica adicional sobre o mecanismo de entrega segue em andamento, em paralelo à questão de orçamento. Prazo de estabilização: 3 a 5 dias úteis a partir do ajuste em 18/08 — ainda dentro da janela, mas próximo do limite.
+        <b>Ainda 0 impressões — prazo prometido pelo Google já esgotou</b>
+        O ajuste de orçamento foi feito em 18/08 e o suporte (Sowjanya) prometeu estabilização em 3 a 5 dias úteis. Hoje (24/08) esse prazo já se esgotou e a campanha continua com 0 impressões, 0 cliques e R$0,00 investidos — nenhuma melhora desde a promessa. Recomendação: reabrir o chamado com a Google cobrando um posicionamento, já que o prazo combinado não foi cumprido.
       </div>
     </div>
 
     <div class="card meta">
-      <h2><span class="dot on"></span>Meta Ads</h2>
-      <div class="sub">2 campanhas — Leads (05–25/08, encerrada) + Visualização de Página (16–25/08, ativa)</div>
+      <h2><span class="dot crit"></span>Meta Ads</h2>
+      <div class="sub">2 campanhas — Leads (05–25/08) + Visualização de Página (16–25/08)</div>
       <div class="stat-row">
-        <div class="stat"><div class="label">Impressões (acum.)</div><div class="value">14.542</div></div>
-        <div class="stat"><div class="label">Alcance (acum.)</div><div class="value">11.483</div></div>
+        <div class="stat"><div class="label">Impressões (acum.)</div><div class="value">18.511</div></div>
+        <div class="stat"><div class="label">Alcance (acum.)</div><div class="value">14.032</div></div>
       </div>
       <div class="stat-row">
-        <div class="stat"><div class="label">Investido</div><div class="value">R$ 237,46</div></div>
+        <div class="stat"><div class="label">Investido</div><div class="value">R$ 269,29</div></div>
         <div class="stat"><div class="label">Leads</div><div class="value">7</div></div>
       </div>
       <div class="totalbudget"><span>Orçamento</span><b>R$ 300,00 + R$ 161,00</b></div>
-      <span class="badge ok">Rodando normalmente</span>
+      <span class="badge crit">Erro no pagamento — ação urgente</span>
+      <span class="badge warn">Ambas as campanhas terminam em 1 dia (25/08)</span>
       <div class="subcard">
-        <b>Visualização de Página segue acelerando</b>
-        Já são 668 visualizações de página a R$0,12 cada, R$80,34 de R$161 investidos. Impressões subiram de 12.226 (20/08) para 14.542 hoje — crescimento consistente dia a dia.
+        <b>Campanha de Visualização de Página com erro no pagamento</b>
+        A campanha "Visualização de Página" (910 visualizações a R$0,12 cada, R$112,17 investidos) está marcada com "Erro no pagamento" no Gerenciador de Anúncios — precisa checar a forma de pagamento da conta antes que a veiculação pare de vez. Além disso, as duas campanhas (Leads e Visualização de Página) terminam em 25/08 — falta 1 dia. Precisamos de uma decisão rápida: renovar, estender ou encerrar o teste.
       </div>
     </div>
 
@@ -122,17 +123,17 @@
       <h2><span class="dot warn"></span>Site (GA4)</h2>
       <div class="sub">faleespanholnotrabalho.com — últimos 28 dias</div>
       <div class="stat-row">
-        <div class="stat"><div class="label">Sessões</div><div class="value">1.028</div></div>
-        <div class="stat"><div class="label">Usuários ativos</div><div class="value">1.006</div></div>
+        <div class="stat"><div class="label">Sessões</div><div class="value">1.286</div></div>
+        <div class="stat"><div class="label">Usuários ativos</div><div class="value">1.261</div></div>
       </div>
       <div class="stat-row">
-        <div class="stat"><div class="label">Taxa de engajamento</div><div class="value">8,46%</div></div>
+        <div class="stat"><div class="label">Taxa de engajamento</div><div class="value">7,47%</div></div>
         <div class="stat"><div class="label">Leads (evento)</div><div class="value">0</div></div>
       </div>
       <span class="badge warn">Engajamento caindo com volume maior</span>
       <div class="subcard">
-        <b>Taxa de engajamento em queda</b>
-        Sessões seguem subindo (1.028 vs. 845 ontem), mas a taxa de engajamento caiu pela 4ª vez seguida (13,6% → 10,9% → 9,82% → 8,46%) — provável reflexo do tráfego pago do Meta escalando mais rápido que o orgânico. Leads via evento seguem em 0, gap de tracking de conversão sem solução ainda.
+        <b>Taxa de engajamento em queda pela 5ª vez seguida</b>
+        Sessões seguem subindo (1.286 vs. 1.028 em 21/08), mas a taxa de engajamento caiu de novo (13,6% → 10,9% → 9,82% → 8,46% → 7,47%) — reflexo do tráfego pago do Meta escalando mais rápido que o orgânico. Leads via evento seguem em 0 (Leads qualificados e convertidos também em 0 no relatório de geração de leads), gap de tracking de conversão sem solução ainda.
       </div>
     </div>
 
@@ -141,9 +142,9 @@
   <div class="section-title">Observações do dia</div>
   <div class="notes">
     <ul>
-      <li><b>Google Ads:</b> ainda 0 impressões e 0 cliques mesmo após o ajuste de orçamento (R$28/dia) — estamos no 4º dia da janela de 3-5 dias úteis de estabilização, próximo do limite prometido pelo suporte. O Google validou a estratégia de focar em "aulas de espanhol" e estimou 5-10 cliques/dia quando o leilão processar o novo valor, além de confirmar que segue uma investigação técnica adicional sobre o mecanismo de entrega.</li>
-      <li><b>Meta Ads:</b> impressões totais chegaram a 14.542 (vs. 12.226 ontem), com a campanha de Visualização de Página seguindo em ritmo forte (668 visualizações a R$0,12 cada). Investimento total das 2 campanhas: R$237,46, com 7 leads confirmados.</li>
-      <li><b>Site:</b> sessões continuam subindo (1.028 nos últimos 28 dias), mas a taxa de engajamento caiu pela quarta vez seguida — sinal de que o volume de tráfego pago está crescendo mais rápido que a qualidade média das visitas. Vale acompanhar se estabiliza nos próximos dias.</li>
+      <li><b>Google Ads:</b> a janela de estabilização de 3-5 dias úteis prometida pelo suporte (a partir do ajuste de orçamento em 18/08) já se esgotou hoje (24/08) e a campanha continua zerada — 0 impressões, 0 cliques, R$0,00 investidos. Recomendamos reabrir o chamado cobrando um retorno, já que o prazo combinado não foi cumprido.</li>
+      <li><b>Meta Ads:</b> impressões combinadas chegaram a 18.511 (Visualização de Página: 14.710 + Leads: 3.801), com R$269,29 investidos e 7 leads confirmados. Porém a campanha de Visualização de Página está com "Erro no pagamento" no Gerenciador de Anúncios — precisa de atenção imediata. Além disso, as duas campanhas terminam em 25/08 (falta 1 dia): é preciso decidir se renovamos, estendemos ou encerramos o teste.</li>
+      <li><b>Site:</b> sessões continuam subindo (1.286 nos últimos 28 dias, vs. 1.028 em 21/08), mas a taxa de engajamento caiu pela quinta vez seguida (7,47%) — o volume de tráfego pago continua crescendo mais rápido que a qualidade média das visitas. Leads via evento seguem em 0.</li>
     </ul>
   </div>
 
